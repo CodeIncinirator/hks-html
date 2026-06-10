@@ -78,7 +78,7 @@ async function unzipAndStore(zipBlob) {
   const cache = await caches.open(CACHE_NAME);
 
   let processed = 0;
-  const batchSize = 10;
+  const batchSize = 1;
 
   for (let i = 0; i < files.length; i += batchSize) {
     const batch = files.slice(i, i + batchSize);
