@@ -4,7 +4,7 @@
     <base href="https://cdn.jsdelivr.net/gh/web-ports/hollow-knight-silksong@master/">
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Hollow Knight SilkSong</title>
+    <title>hks nd</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -149,14 +149,9 @@ async function fetchWithProgress(url) {
 async function mergeFiles(parts) {
   console.log("Downloading parts:", parts.length);
 
-  const buffers = [];
-
-  for (const part of parts) {
-    const buffer = await fetchWithProgress(part);
-    buffers.push(buffer);
-
-    await new Promise(resolve => setTimeout(resolve, 0));
-  }
+  const buffers = await Promise.all(
+    parts.map(part => fetchWithProgress(part))
+  );
 
   return new Blob(buffers);
 }
