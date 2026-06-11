@@ -4,7 +4,7 @@
     <base href="https://cdn.jsdelivr.net/gh/web-ports/hollow-knight-silksong@master/">
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>hks nd</title>
+    <title>Unity Web Player | Hollow Knight SilkSong</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -78,7 +78,7 @@ async function unzipAndStore(zipBlob) {
   const cache = await caches.open(CACHE_NAME);
 
   let processed = 0;
-  const batchSize = 10;
+  const batchSize = 1;
 
   for (let i = 0; i < files.length; i += batchSize) {
     const batch = files.slice(i, i + batchSize);
